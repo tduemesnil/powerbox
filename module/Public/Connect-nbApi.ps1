@@ -25,8 +25,11 @@ function Connect-nbAPI {
         $APIurl,
         # Size of pages returned by "Get-nb*" commands.
         [int]
-        $QueryLimit = 250 
+        $QueryLimit = 250,
         #I find the default 50 very slow as the overhead is absurd.
+        [switch]
+        $SkipCertificateCheck
+        #Allow self signed certs
     )
     process {
         $Script:Token = $Token
@@ -37,6 +40,7 @@ function Connect-nbAPI {
         }
         $Script:APIUrl = $APIUrl
         $Script:QueryLimit = $QueryLimit
+        $Script:SkipCertificateCheck = $SkipCertificateCheck
         Write-Verbose "Saved connection to $Script:APIUrl"
     }
 }

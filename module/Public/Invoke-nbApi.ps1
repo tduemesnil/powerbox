@@ -120,6 +120,7 @@ function Invoke-nbApi {
                 UserAgent   = "NB-{0}-PowerShell" -f $ENV:USERNAME
                 ContentType = 'application/json'
                 Body        = $Body
+                SkipCertificateCheck = $Script:SkipCertificateCheck
                 ###TimeoutSec
                 ###MaximumRedirection
                 ###TransferEncoding
